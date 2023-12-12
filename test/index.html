@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Employee Details</title>
+
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: 1pt solid #d6efed;
+        padding: 8px;
+        text-align: center;
+        font-size: 12pt;
+      }
+      th {
+        background-color: #d6efed;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table id="employee Table">
+      <thead>
+        <tr>
+          <th>Employee Name</th>
+
+          <th>Designation</th>
+
+          <th>Date of Joining</th>
+        </tr>
+      </thead>
+
+      <tbody id="employeeData">
+        <!--Employee details will be dynamically added here -->
+      </tbody>
+    </table>
+
+    <script>
+      // Sample employee data (replace this with your actual data)
+
+      const employees = [
+        {
+          EmployeeName: "Niraj",
+          Designation: "Technical Writer",
+          DateofJoining: "12-12-12",
+          Address: "Pune",
+          Salary: 500000,
+        },
+        {
+          EmployeeName: "Abhi",
+          Designation: "Technical Writer",
+          DateofJoining: "13-12-23",
+          Address: "Pune",
+          Salary: 600000,
+        },
+        {
+          EmployeeName: "Anu",
+          Designation: "Technical Writer",
+          DateofJoining: "15-12-23",
+          Address: "Pune",
+          Salary: 600000,
+        },
+        {
+          EmployeeName: "mehul",
+          Designation: "Technical Writer",
+          DateofJoining: "15-12-23",
+          Address: "Pune",
+          Salary: 610000,
+        },
+        {
+          EmployeeName: "Arpit",
+          Designation: "Technical Writer",
+          DateofJoining: "14-12-23",
+          Address: "Pune",
+          Salary: 70000,
+        },
+      ];
+
+      const filteredEmployees = employees.filter(
+        (employee) =>
+          employee.Designation === "Technical Writer" &&
+          employee.Salary > 500000 &&
+          employee.Salary < 700000
+      );
+
+      const tableBody = document.getElementById("employeeData");
+      tableBody.innerHTML = "";
+
+      filteredEmployees.forEach((employee) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${employee.EmployeeName}</td>
+      <td>${employee.Designation}</td>
+      <td>${employee.DateofJoining}</td>`;
+        tableBody.appendChild(row);
+      });
+
+      filterAndDisplay();
+    </script>
+  </body>
+</html>
